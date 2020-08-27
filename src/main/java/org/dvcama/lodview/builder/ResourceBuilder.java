@@ -3,6 +3,7 @@ package org.dvcama.lodview.builder;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -304,7 +305,7 @@ public class ResourceBuilder {
 				triples = se.doQuery(IRI, property, start, conf.getDefaultInversesQueries(), null, null);
 			}
 
-			Map<String, TripleBean> controlList = new HashMap<String, TripleBean>();
+			Map<String, TripleBean> controlList = new LinkedHashMap<String, TripleBean>();
 			for (TripleBean tripleBean : triples) {
 				if (tripleBean.getType().equals("literal")) {
 					if (controlList.get(tripleBean.getProperty().getProperty()) == null || preferredLanguage.equals(tripleBean.getLang())) {
